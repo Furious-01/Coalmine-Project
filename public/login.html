@@ -1,0 +1,75 @@
+<!-- ok -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page Coal Mine</title>
+    <link rel="stylesheet" href="./loginstyle.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo"><img src="logos.jpg" width="20%" height="20%"></h2>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="/login" method="POST"> 
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" name="name" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">                                                                        
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>
+                    
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Terms and Conditions -->
+    <div class="modal" id="terms-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <p>By accessing and using this login portal, you agree to comply with and be bound by the following terms and conditions...</p>
+            <p>All users must comply with the Mines Act, 1952, the Coal Mines Regulations, 2017, and other applicable Indian laws...</p>
+            <p>Users must follow all safety procedures outlined by the company, including the use of protective equipment...</p>
+            <!-- Add more detailed terms and conditions as required -->
+        </div>
+    </div>
+
+    <script src="loginscript.js"></script>
+    <script src="server.js"></script>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

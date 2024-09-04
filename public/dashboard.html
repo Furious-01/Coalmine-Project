@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="dstyles.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="#" id="overviewLink" class="active"><i class='bx bxs-dashboard'></i> Overview</a></li>
+            <li><a href="#" id="newUsersLink"><i class='bx bxs-user'></i> New Users</a></li>
+            <li><a href="#" id="workersInfoLink"><i class='bx bxs-hard-hat'></i>Workers Info</a></li>
+            <li>
+                <a href="#" id="equipmentsLink">
+                    <ion-icon name="hammer"></ion-icon> Equipments</a>
+            </li>
+            <li>
+                <a href="#" id="notificationsLink">
+                    <ion-icon name="notifications"></ion-icon> Notifications</a>
+            </li>
+            <li><a href="login.html"><i class='bx bxs-log-out'></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h2>Welcome to the Dashboard</h2>
+        </div>
+
+        <div id="dashboardContent">
+            <div class="cards">
+                <div class="card">
+                    <i class='bx bxs-user'></i>
+                    <h3>New Users</h3>
+                    <p id="newUsers"></p>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-hard-hat'></i>
+                    <h3>Worker info</h3>
+                    <p id=""></p>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-truck' ></i>
+                    <h3>Equipments</h3>
+                    <p id="Equipment"></p>
+                </div>
+                <div class="card">
+                    <i class='bx bxs-bell' ></i>
+                    <h3>Notification</h3>
+                    <p id="Notification"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Existing Workers Info Section -->
+        <div id="workersInfo" style="display: none;">
+            <h2>Worker's Information</h2>
+            <div id="searchContainer">
+                <input type="text" id="usernameInput" placeholder="Enter Username">
+                <button id="searchButton" class="btn">Search</button>
+            </div>
+
+            <div id="workerDetails"></div>
+            <p><strong>Full Name:</strong> <span id="workerFullName"></span></p>
+            <p><strong>Username:</strong> <span id="workerUsername"></span></p>
+            <p><strong>Gender:</strong> <span id="workerGender"></span></p>
+            <p><strong>Blood Group:</strong> <span id="workerBloodGroup"></span></p>
+            <p><strong>Address:</strong> <span id="workerAddress"></span></p>
+            <p><strong>Pin Code:</strong> <span id="workerPinCode"></span></p>
+            <p><strong>Email:</strong> <span id="workerEmail"></span></p>
+            <p><strong>Phone Number:</strong> <span id="workerPhoneNumber"></span></p>
+            <p><strong>Date of Birth:</strong> <span id="workerDOB"></span></p>
+            <p><strong>Father's Name:</strong> <span id="workerFatherName"></span></p>
+            <p><strong>Father's Number:</strong> <span id="workerFatherNumber"></span></p>
+            <p><strong>Father's Address:</strong> <span id="workerFatherAddress"></span></p>
+        </div>
+
+        <!-- New Equipments Section -->
+        <!-- Equipments Section -->
+<div id="equipments" style="display: none;">
+    <h2>Equipments Information</h2>
+    <form id="addEquipmentForm">
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" id="machineNo" placeholder="Machine No." required>
+            </div>
+            <div class="input-field">
+                <input type="text" id="machineType" placeholder="Machine Type" required>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" id="machineStatus" placeholder="Machine Status" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Add Equipment</button>
+    </form>
+
+    <h3>Existing Equipments</h3>
+    <table id="equipmentsTable">
+        <thead>
+            <tr>
+                <th>Machine No.</th>
+                <th>Machine Type</th>
+                <th>Machine Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Existing equipment rows will be dynamically populated here -->
+        </tbody>
+    </table>
+</div>
+<!-- Notifications Section -->
+<div id="notifications" style="display: none;">
+    <h2>Send Emergency Notification</h2>
+    <form id="sendNotificationForm">
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" id="workerUsername" placeholder="Enter Worker Username" required>
+            </div>
+        </div>
+
+        <div class="input-box">
+            <div class="input-field">
+                <textarea id="notificationMessage" placeholder="Enter Emergency Message" required></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn">Send Alert</button>
+    </form>
+
+    <h3>Notifications Log</h3>
+    <table id="notificationsLog">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Notifications rows will be dynamically populated here -->
+        </tbody>
+    </table>
+</div>
+
+
+
+        <!-- Registration Form -->
+        <div id="registrationForm" style="display: none;">
+            <h2>Registration Form</h2>
+            <form id="userForm">
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" placeholder="Full Name" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Username" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" placeholder="Gender" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="Blood Group" required>
+                        <i class='bx bxs-droplet'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" placeholder="Address" required>
+                        <i class='bx bxs-home'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="number" placeholder="Pin Code" required>
+                        <i class='bx bxs-pin'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="email" placeholder="Email" required>
+                        <i class='bx bxs-envelope'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="number" placeholder="Phone Number" required>
+                        <i class='bx bxs-phone'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="date" placeholder="Date of Birth" required>
+                        <i class='bx bxs-calendar'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Password" required>
+                        <i class='bx bxs-lock-alt'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="password" placeholder="Confirm Password" required>
+                        <i class='bx bxs-lock-alt'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" placeholder="Father's Name" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="number" placeholder="Father's Number" required>
+                        <i class='bx bxs-phone'></i>
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <div class="input-field">
+                        <input type="text" placeholder="Father's Address" required>
+                        <i class='bx bxs-home'></i>
+                    </div>
+                </div>
+
+                <label><input type="checkbox" required> I hereby declare that the above information provided is true and
+                    correct</label>
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="dscript.js"></script>
+</body>
+
+</html>
