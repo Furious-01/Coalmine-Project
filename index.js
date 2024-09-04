@@ -49,21 +49,55 @@ app.post("/login", (req, res) => {
 
 app.post("/sign_up",(req,res) => {
     var name= req.body.name
-    var age=req.body.age
+    var username= req.body.username
+    var gender=req.body.gender
+    var bloodgroup= req.body.bloodgroup
+    var address= req.body.address
+    var pinCode= req.body.pinCode
     var email=req.body.email
     var phno=req.body.phno
-    var gender=req.body.gender
+    var dob= req.body.dob
     var password=req.body.password
+    var fathersName= req.body.fathersName
+    var fathersNo= req.body.fathersNo
+    var fathersAddress= req.body.fathersAddress
 
     var data={
         "name":name,
-        "age":age,
+        "username": username,
+        "gender":gender,
+        "bloodgroup": bloodgroup,
+        "address": address,
+        "pincode": pinCode,
         "email":email,
         "phno":phno,
-        "gender":gender,
-        "password":password
+        "dob": dob,
+        "password":password,
+        "father's name": fathersName,
+        "father's Number": fathersNo,
+        "fathersAddress": fathersAddress
     }
-    db.collection('login.admin').insertOne(data,(err,collection) => {
+    db.collection('worker.info').insertOne(data,(err,collection) => {
+        if(err){
+            throw err;
+        }
+        console.log("Record Inserted Succesfully")
+    })
+    return res.redirect('dashboard.html')
+})
+
+app.post("/add_equipment",(req,res) => {
+
+    var machine_no= req.body.machine_no
+    var machine_type= req.body.machine_type
+    var machine_status= req.body.machine_status
+
+    var data={
+        "Machine.no.":machine_no,
+        "Machine.type": machine_type,
+        "Machine.Status":machine_status
+    }
+    db.collection('Machine_info').insertOne(data,(err,collection) => {
         if(err){
             throw err;
         }

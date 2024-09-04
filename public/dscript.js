@@ -34,6 +34,25 @@ document.getElementById('notificationsLink').addEventListener('click', function(
     loadNotifications(); // Ensure the notifications log is loaded when section is shown
 });
 
+// Event listener for the worker info card
+document.getElementById('workerInfo').addEventListener('click', function() {
+    showSection('workersInfo');
+});
+
+// Event listener for the new user card
+document.getElementById('newuser').addEventListener('click', function() {
+    showSection('registrationForm');
+});
+// Event listener for the equipment user card
+document.getElementById('equipment').addEventListener('click', function() {
+    showSection('equipments');
+});
+// Event listener for the notification user card
+document.getElementById('notification').addEventListener('click', function() {
+    showSection('notifications');
+});
+
+
 // Function to handle form submission for sending notifications
 document.getElementById('sendNotificationForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -87,102 +106,6 @@ function loadNotifications() {
         .catch(error => console.error('Error fetching notifications:', error));
 }
 
-// Function to handle form submission for adding new equipment
-document.getElementById('addEquipmentForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Capture form data
-    const equipmentData = {
-        machineNo: document.getElementById('machineNo').value,
-        machineType: document.getElementById('machineType').value,
-        machineStatus: document.getElementById('machineStatus').value
-    };
-
-    // Send the data to the server
-    fetch('/api/addEquipment', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(equipmentData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Equipment added successfully!');
-            // Clear form fields and reload equipment list
-            document.getElementById('addEquipmentForm').reset();
-            loadEquipments(); // Reload equipment list to include the newly added equipment
-        } else {
-            alert('Error adding equipment');
-        }
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-// Function to load and display existing equipment data
-function loadEquipments() {
-    fetch('/api/getEquipments')
-        .then(response => response.json())
-        .then(data => {
-            const tableBody = document.querySelector('#equipmentsTable tbody');
-            tableBody.innerHTML = ''; // Clear existing rows
-
-            data.forEach(equipment => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${equipment.machineNo}</td>
-                    <td>${equipment.machineType}</td>
-                    <td>${equipment.machineStatus}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        })
-        .catch(error => console.error('Error fetching equipment data:', error));
-}
-
-// Function to handle form submission for worker registration
-document.getElementById('userForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Capture form data
-    const workerData = {
-        fullName: document.querySelector('input[placeholder="Full Name"]').value,
-        username: document.querySelector('input[placeholder="Username"]').value,
-        gender: document.querySelector('input[placeholder="Gender"]').value,
-        bloodGroup: document.querySelector('input[placeholder="Blood Group"]').value,
-        address: document.querySelector('input[placeholder="Address"]').value,
-        pinCode: document.querySelector('input[placeholder="Pin Code"]').value,
-        email: document.querySelector('input[placeholder="Email"]').value,
-        phoneNumber: document.querySelector('input[placeholder="Phone Number"]').value,
-        dob: document.querySelector('input[placeholder="Date of Birth"]').value,
-        fatherName: document.querySelector('input[placeholder="Father\'s Name"]').value,
-        fatherNumber: document.querySelector('input[placeholder="Father\'s Number"]').value,
-        fatherAddress: document.querySelector('input[placeholder="Father\'s Address"]').value
-    };
-
-    // Save the data to the server
-    fetch('/api/registerWorker', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(workerData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Registration successful!');
-            // Clear form fields
-            document.getElementById('userForm').reset();
-        } else {
-            alert('Error registering worker');
-        }
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-// Example data for workers (Replace with actual API call or database query)
 const workersData = [
     {
         username: 'john_doe',

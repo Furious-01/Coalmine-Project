@@ -35,22 +35,22 @@
 
         <div id="dashboardContent">
             <div class="cards">
-                <div class="card">
+                <div class="card" id="newuser">
                     <i class='bx bxs-user'></i>
                     <h3>New Users</h3>
                     <p id="newUsers"></p>
                 </div>
-                <div class="card">
+                <div class="card" id="workerInfo">
                     <i class='bx bxs-hard-hat'></i>
                     <h3>Worker info</h3>
                     <p id=""></p>
                 </div>
-                <div class="card">
+                <div class="card" id="equipment">
                     <i class='bx bxs-truck' ></i>
                     <h3>Equipments</h3>
                     <p id="Equipment"></p>
                 </div>
-                <div class="card">
+                <div class="card" id="notification">
                     <i class='bx bxs-bell' ></i>
                     <h3>Notification</h3>
                     <p id="Notification"></p>
@@ -85,19 +85,19 @@
         <!-- Equipments Section -->
 <div id="equipments" style="display: none;">
     <h2>Equipments Information</h2>
-    <form id="addEquipmentForm">
+    <form action="/add_equipment" method="POST" id="addEquipmentForm">
         <div class="input-box">
             <div class="input-field">
-                <input type="text" id="machineNo" placeholder="Machine No." required>
+                <input type="text" name="machine_no" id="machineNo" placeholder="Machine No." required>
             </div>
             <div class="input-field">
-                <input type="text" id="machineType" placeholder="Machine Type" required>
+                <input type="text" name="machine_type" id="machineType" placeholder="Machine Type" required>
             </div>
         </div>
 
         <div class="input-box">
             <div class="input-field">
-                <input type="text" id="machineStatus" placeholder="Machine Status" required>
+                <input type="text" name="machine_status" id="machineStatus" placeholder="Machine Status" required>
             </div>
         </div>
 
@@ -157,83 +157,83 @@
         <!-- Registration Form -->
         <div id="registrationForm" style="display: none;">
             <h2>Registration Form</h2>
-            <form id="userForm">
+            <form action="/sign_up" method="POST" id="userForm">
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" name="name" placeholder="Full Name" required>
                         <i class='bx bxs-user'></i>
                     </div>
                     <div class="input-field">
-                        <input type="text" placeholder="Username" required>
+                        <input type="text" name="username" placeholder="Username" required>
                         <i class='bx bxs-user'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="text" placeholder="Gender" required>
+                        <input type="text" name="gender" placeholder="Gender" required>
                         <i class='bx bxs-user'></i>
                     </div>
                     <div class="input-field">
-                        <input type="text" placeholder="Blood Group" required>
+                        <input type="text" name="bloodgroup" placeholder="Blood Group" required>
                         <i class='bx bxs-droplet'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="text" placeholder="Address" required>
+                        <input type="text" name="address" placeholder="Address" required>
                         <i class='bx bxs-home'></i>
                     </div>
                     <div class="input-field">
-                        <input type="number" placeholder="Pin Code" required>
+                        <input type="number" name="pincode" placeholder="Pin Code" required>
                         <i class='bx bxs-pin'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" name="email" placeholder="Email" required>
                         <i class='bx bxs-envelope'></i>
                     </div>
                     <div class="input-field">
-                        <input type="number" placeholder="Phone Number" required>
+                        <input type="number" name="phno" placeholder="Phone Number" required>
                         <i class='bx bxs-phone'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="date" placeholder="Date of Birth" required>
+                        <input type="date" name="dob" placeholder="Date of Birth" required>
                         <i class='bx bxs-calendar'></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password"  placeholder="Password" required>
                         <i class='bx bxs-lock-alt'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="password" placeholder="Confirm Password" required>
+                        <input type="password" name="password" placeholder="Confirm Password" required>
                         <i class='bx bxs-lock-alt'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="text" placeholder="Father's Name" required>
+                        <input type="text" name="fathersName" placeholder="Father's Name" required>
                         <i class='bx bxs-user'></i>
                     </div>
                     <div class="input-field">
-                        <input type="number" placeholder="Father's Number" required>
+                        <input type="number" name="fathersNo" placeholder="Father's Number" required>
                         <i class='bx bxs-phone'></i>
                     </div>
                 </div>
 
                 <div class="input-box">
                     <div class="input-field">
-                        <input type="text" placeholder="Father's Address" required>
+                        <input type="text" name="fathersAddress" placeholder="Father's Address" required>
                         <i class='bx bxs-home'></i>
                     </div>
                 </div>
@@ -251,3 +251,4 @@
 </body>
 
 </html>
+
