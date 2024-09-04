@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect('mongodb://localhost:27017/Database')
+mongoose.connect('mongodb+srv://rachitchauhanjsp78:RxPSxegBzp7xZZIF@coalmine.lc54i.mongodb.net/coalmine')
 var db=mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
     console.log("Input Password: ", password);
 
     // Find the user with the provided name
-    db.collection('users').findOne({ name: name }, (err, user) => {
+    db.collection('login.admin').findOne({ name: name }, (err, user) => {
         if (err) {
             console.error("Error occurred:", err);
             return res.send('<script>alert("An error occurred while processing your request."); window.location.href = "login.html";</script>');
@@ -63,7 +63,7 @@ app.post("/sign_up",(req,res) => {
         "gender":gender,
         "password":password
     }
-    db.collection('users').insertOne(data,(err,collection) => {
+    db.collection('login.admin').insertOne(data,(err,collection) => {
         if(err){
             throw err;
         }
